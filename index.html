@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AKL Financial Organization - Ethical Tech Investment</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>AKL Financial Organization - Shaping Tomorrow's World</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary-blue: #1e40af;
+            --primary-purple: #7c3aed;
+            --accent-teal: #0891b2;
+            --accent-green: #059669;
+            --dark-navy: #1e293b;
+            --light-gray: #f8fafc;
+            --medium-gray: #64748b;
+            --white: #ffffff;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -15,274 +27,487 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #fff;
+            color: var(--dark-navy);
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
+        /* Animated Background Elements */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            background: linear-gradient(45deg, rgba(30, 64, 175, 0.1), rgba(124, 58, 237, 0.1));
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            left: 70%;
+            animation-delay: 5s;
+        }
+
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            left: 40%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(120deg); }
+            66% { transform: translateY(-60px) rotate(240deg); }
+        }
+
         /* Header */
         header {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid rgba(30, 64, 175, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 1.2rem 0;
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #1a365d;
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
+            align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #4a5568;
+            color: var(--medium-gray);
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .nav-links a:hover {
-            color: #1a365d;
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple));
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .cta-nav {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-nav:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 120px 0 80px;
-            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
             position: relative;
             overflow: hidden;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
         }
 
-        .hero::before {
-            content: '';
+        .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff08" points="0,1000 1000,0 1000,1000"/></svg>');
+            width: 100%;
+            height: 100%;
+            background-image: url('https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/1ff940c7-bf65-47ad-9025-2de0da9100f9.png');
             background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.8), rgba(124, 58, 237, 0.6));
+            z-index: 2;
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 3;
+            color: white;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
             margin-bottom: 2rem;
-            opacity: 0.9;
+            background: linear-gradient(135deg, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .cta-button {
+        .hero-subtitle {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-green));
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
             display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(8, 145, 178, 0.4);
+        }
+
+        .btn-secondary {
             background: rgba(255, 255, 255, 0.15);
             color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
+            padding: 16px 32px;
             border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s;
+            border-radius: 50px;
+            font-size: 1.1rem;
             font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
 
-        .cta-button:hover {
+        .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
 
-        /* Sections */
-        section {
-            padding: 80px 0;
+        /* Stats Section */
+        .stats {
+            padding: 4rem 0;
+            background: var(--white);
+            position: relative;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--medium-gray);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Investment Focus */
+        .focus {
+            padding: 6rem 0;
+            background: var(--light-gray);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 3rem;
-            color: #1a365d;
+            color: var(--dark-navy);
+            margin-bottom: 1rem;
         }
 
         .section-subtitle {
-            text-align: center;
             font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 4rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            color: var(--medium-gray);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* Investment Focus Grid */
         .focus-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
 
         .focus-card {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid #e0e0e0;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .focus-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
         }
 
         .focus-card img {
             width: 100%;
-            height: 200px;
+            height: 250px;
             object-fit: cover;
-            border-radius: 10px;
+        }
+
+        .focus-content {
+            padding: 2rem;
+        }
+
+        .focus-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
             margin-bottom: 1.5rem;
         }
 
         .focus-card h3 {
             font-size: 1.5rem;
-            font-weight: 600;
+            font-weight: 700;
+            color: var(--dark-navy);
             margin-bottom: 1rem;
-            color: #1a365d;
         }
 
         .focus-card p {
-            color: #666;
+            color: var(--medium-gray);
             line-height: 1.6;
         }
 
-        /* About Section */
-        .about {
-            background: #f8f9fa;
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--dark-navy), #334155);
+            color: white;
         }
 
-        .about-content {
+        .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
         }
 
-        .about-text h2 {
-            font-size: 2.2rem;
+        .contact-info h2 {
+            font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            color: #1a365d;
         }
 
-        .about-text p {
+        .contact-info p {
             font-size: 1.1rem;
-            color: #666;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
             margin-bottom: 1.5rem;
         }
 
-        .values-list {
-            list-style: none;
-            margin-top: 2rem;
-        }
-
-        .values-list li {
-            padding: 0.5rem 0;
-            color: #666;
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .values-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #4CAF50;
-            font-weight: bold;
-        }
-
-        .about-image {
-            text-align: center;
-        }
-
-        .about-image img {
-            width: 100%;
-            max-width: 500px;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        /* Process Section */
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .process-step {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .step-number {
-            display: inline-block;
-            width: 60px;
-            height: 60px;
-            background: #667eea;
-            color: white;
-            border-radius: 50%;
-            line-height: 60px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        .process-step h3 {
-            font-size: 1.3rem;
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
             font-weight: 600;
-            margin-bottom: 1rem;
-            color: #1a365d;
+            color: white;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-teal);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-green));
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(8, 145, 178, 0.3);
         }
 
         /* Footer */
         footer {
-            background: #1a365d;
+            background: #0f172a;
             color: white;
+            padding: 3rem 0 2rem;
             text-align: center;
-            padding: 3rem 0;
         }
 
         .footer-content {
@@ -294,25 +519,20 @@
 
         .footer-section h3 {
             font-size: 1.2rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 1rem;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            line-height: 1.6;
-        }
-
-        .footer-section a:hover {
             color: white;
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
         }
 
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 1rem;
-            color: rgba(255, 255, 255, 0.6);
+            padding-top: 2rem;
+            color: rgba(255, 255, 255, 0.5);
         }
 
         /* Mobile Responsive */
@@ -325,164 +545,297 @@
                 font-size: 2.5rem;
             }
 
-            .hero p {
+            .hero-subtitle {
                 font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2rem;
             }
 
             .focus-grid {
                 grid-template-columns: 1fr;
             }
 
-            .about-content {
+            .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            .section-title {
-                font-size: 2rem;
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+    </div>
+
     <!-- Header -->
-    <header>
+    <header id="header">
         <nav class="container">
             <div class="logo">AKL Financial</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#focus">Investment Focus</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#process">Process</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="cta-nav">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
-                <h1>AKL Financial Organization</h1>
-                <p>Investing in cutting-edge technology for a better tomorrow through ethical fund-of-funds approach</p>
-                <a href="#about" class="cta-button">Learn More</a>
+                <h1>Shaping Tomorrow's World Through Ethical Technology Investment</h1>
+                <p class="hero-subtitle">AKL Financial Organization invests in breakthrough technologies across marine innovation, ethical defense systems, and sustainable energy solutions to create a better future for humanity.</p>
+                <div class="hero-buttons">
+                    <a href="#focus" class="btn-primary">Explore Our Vision</a>
+                    <a href="#contact" class="btn-secondary">Partner With Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item slide-up">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Key Technology Sectors</div>
+                </div>
+                <div class="stat-item slide-up">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Future Impact Potential</div>
+                </div>
+                <div class="stat-item slide-up">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Ethical Investment Standard</div>
+                </div>
+                <div class="stat-item slide-up">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Unified Vision</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Investment Focus Section -->
-    <section id="focus">
+    <section id="focus" class="focus">
         <div class="container">
-            <h2 class="section-title">Investment Focus Areas</h2>
-            <p class="section-subtitle">We invest capital in various specialized funds targeting breakthrough technologies that create positive global impact</p>
+            <div class="section-header">
+                <h2 class="section-title">Investment Focus Areas</h2>
+                <p class="section-subtitle">We strategically invest in fund managers who share our vision of creating positive global impact through cutting-edge technology innovation.</p>
+            </div>
             
             <div class="focus-grid">
-                <div class="focus-card">
-                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=200&fit=crop" alt="Marine Technology">
-                    <h3>Marine Technology</h3>
-                    <p>Advanced underwater systems, autonomous marine vehicles, and sustainable ocean technologies driving innovation in exploration and conservation.</p>
+                <div class="focus-card slide-up">
+                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=300&fit=crop" alt="Marine Technology">
+                    <div class="focus-content">
+                        <div class="focus-icon">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <h3>Marine Technology</h3>
+                        <p>Revolutionary underwater systems, autonomous marine exploration vehicles, and sustainable ocean technologies that unlock the mysteries of our blue planet while preserving marine ecosystems.</p>
+                    </div>
                 </div>
                 
-                <div class="focus-card">
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=200&fit=crop" alt="Defense Technology">
-                    <h3>Defense Technology</h3>
-                    <p>Ethical defense solutions focusing on protection, cybersecurity, and advanced systems that enhance global security and peacekeeping efforts.</p>
+                <div class="focus-card slide-up">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=300&fit=crop" alt="Defense Technology">
+                    <div class="focus-content">
+                        <div class="focus-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Ethical Defense Technology</h3>
+                        <p>Advanced protection systems, cybersecurity innovations, and defensive technologies that prioritize human safety, global peacekeeping, and ethical military applications.</p>
+                    </div>
                 </div>
                 
-                <div class="focus-card">
-                    <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=400&h=200&fit=crop" alt="Energy Technology">
-                    <h3>Energy Technology</h3>
-                    <p>Renewable energy innovations, smart grid systems, and sustainable power solutions that accelerate the transition to clean energy.</p>
+                <div class="focus-card slide-up">
+                    <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=600&h=300&fit=crop" alt="Energy Technology">
+                    <div class="focus-content">
+                        <div class="focus-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Sustainable Energy Technology</h3>
+                        <p>Next-generation renewable energy solutions, smart grid innovations, and clean power technologies that accelerate humanity's transition to a carbon-neutral future.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Our Approach</h2>
-                    <p>AKL Financial Organization operates as a fund-of-funds, strategically investing capital across various specialized funds that focus on transformative technologies.</p>
-                    <p>Our investment committee rigorously evaluates opportunities based on both financial returns and positive global impact, ensuring alignment with our core ethical values.</p>
-                    
-                    <ul class="values-list">
-                        <li>Ethical investment standards and transparency</li>
-                        <li>Focus on technologies with positive global impact</li>
-                        <li>Rigorous due diligence and committee oversight</li>
-                        <li>Long-term partnership approach with fund managers</li>
-                        <li>Sustainable returns for organization and partners</li>
-                    </ul>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Ready to Shape the Future Together?</h2>
+                    <p>Join us in building a better tomorrow through strategic technology investments. Our investment committee carefully evaluates every opportunity based on both financial returns and positive global impact.</p>
+                    <p>Connect with AKL Financial Organization to explore partnership opportunities and learn how we're creating lasting positive change through ethical technology investments.</p>
                 </div>
                 
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=500&h=300&fit=crop" alt="Investment Committee">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section id="process">
-        <div class="container">
-            <h2 class="section-title">Investment Process</h2>
-            <p class="section-subtitle">Every investment opportunity undergoes thorough evaluation by our experienced investment committee</p>
-            
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Screening</h3>
-                    <p>Initial evaluation of fund alignment with our ethical technology focus areas and impact criteria.</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Due Diligence</h3>
-                    <p>Comprehensive analysis of fund performance, management team, and technology portfolio assessment.</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Committee Review</h3>
-                    <p>Investment committee evaluates opportunities based on core values, impact potential, and return projections.</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Partnership</h3>
-                    <p>Long-term collaboration with selected fund managers to maximize positive impact and sustainable returns.</p>
+                <div class="contact-form">
+                    <form action="mailto:leblanc.allan@gmail.com" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Organization</label>
+                            <input type="text" id="company" name="company" placeholder="Your organization name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="inquiry">Inquiry Type</label>
+                            <select id="inquiry" name="inquiry">
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="investment">Investment Inquiry</option>
+                                <option value="general">General Information</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your inquiry and how we can help..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>AKL Financial Organization</h3>
-                    <p>Investing in ethical technology funds for a sustainable future through strategic fund-of-funds approach.</p>
+                    <p>Investing in ethical technology funds that create positive global impact through strategic fund-of-funds approach in marine tech, defense tech, and energy innovation.</p>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Investment Focus</h3>
-                    <p>Marine Technology<br>
-                    Defense Technology<br>
-                    Energy Technology</p>
+                    <h3>Our Mission</h3>
+                    <p>To accelerate humanity's progress by identifying and supporting breakthrough technologies that solve global challenges while maintaining the highest ethical standards.</p>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Contact Information</h3>
-                    <p>Professional inquiries and partnership opportunities welcomed through appropriate channels.</p>
+                    <h3>Investment Approach</h3>
+                    <p>Every investment opportunity is rigorously evaluated by our investment committee based on both financial returns and measurable positive impact on society and the environment.</p>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 AKL Financial Organization. All rights reserved. | Ethical Technology Investment</p>
+                <p>&copy; 2025 AKL Financial Organization. All rights reserved. | Ethical Technology Investment | Shaping Tomorrow's World</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = entry.target.dataset.animation || 'fadeIn 1s ease-out';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.slide-up, .fade-in').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Form submission with better UX
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const button = document.querySelector('.submit-btn');
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            button.disabled = true;
+            
+            // Reset after 3 seconds (since mailto doesn't give us feedback)
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                    button.disabled = false;
+                }, 2000);
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
