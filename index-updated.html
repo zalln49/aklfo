@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKL Financial Organization - Principled Investment Excellence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #1a365d;
+            --secondary-blue: #2c5282;
+            --accent-gold: #d69e2e;
+            --light-gold: #f6e05e;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --bg-white: #ffffff;
+            --bg-light: #f7fafc;
+            --bg-dark: #1a202c;
+            --border-light: #e2e8f0;
+            --success-green: #38a169;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: var(--accent-gold);
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .cta-button {
+            background: var(--accent-gold);
+            color: var(--bg-white);
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--light-gold);
+            color: var(--text-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-navy) 0%, var(--secondary-blue) 100%);
+            clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primary-navy);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--bg-white);
+            padding: 16px 32px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--light-gold);
+            color: var(--text-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(214, 158, 46, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-navy);
+            padding: 16px 32px;
+            border: 2px solid var(--primary-navy);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-navy);
+            color: var(--bg-white);
+            transform: translateY(-3px);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInRight 1s ease-out 0.6s both;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 500px;
+            background: url('https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/f755f104-6114-45a1-9e20-089f90e51bbf.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(26, 54, 93, 0.1), rgba(214, 158, 46, 0.1));
+        }
+
+        /* Core Values Section */
+        .values {
+            padding: 6rem 0;
+            background: var(--bg-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--light-gold));
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--bg-white);
+        }
+
+        .value-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+        }
+
+        .value-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Statistics Section */
+        .stats {
+            padding: 4rem 0;
+            background: var(--primary-navy);
+            color: var(--bg-white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--light-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Investment Approach Section */
+        .approach {
+            padding: 6rem 0;
+            background: var(--bg-light);
+        }
+
+        .approach-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .approach-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .approach-text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .approach-features {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .approach-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .approach-features li:last-child {
+            border-bottom: none;
+        }
+
+        .approach-features li i {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+        }
+
+        .approach-visual {
+            position: relative;
+        }
+
+        .approach-image {
+            width: 100%;
+            height: 400px;
+            background: url('https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/73f6ea37-3429-4c4c-91fb-0d4ef37c429f.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: var(--bg-white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            background: var(--bg-white);
+            color: var(--text-dark);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(214, 158, 46, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--accent-gold);
+            color: var(--bg-white);
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--light-gold);
+            color: var(--text-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: var(--bg-white);
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--light-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Success Message */
+        .form-success {
+            background: var(--success-green);
+            color: var(--bg-white);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+
+        .form-success.show {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero::before {
+                display: none;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .approach-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll-triggered animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav class="container">
+            <a href="#home" class="logo">AKL Financial</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#contact" class="cta-button">Connect</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Principled Investment Excellence</h1>
+                    <p class="subtitle">Building partnerships through integrity, loyalty, innovation, and sustainable growth. We invest in tomorrow's leaders while upholding today's highest standards.</p>
+                    <div class="hero-buttons">
+                        <a href="about.html" class="btn-primary">
+                            <i class="fas fa-arrow-right"></i>
+                            Our Approach
+                        </a>
+                        <a href="#contact" class="btn-secondary">
+                            <i class="fas fa-handshake"></i>
+                            Partner With Us
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-image"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="values">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Our Core Values</h2>
+                <p class="section-subtitle">Every investment decision is guided by four fundamental principles that define who we are and how we operate.</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card animate-on-scroll">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>Unwavering commitment to ethical practices, transparent communication, and doing what's right, even when no one is watching.</p>
+                </div>
+                
+                <div class="value-card animate-on-scroll">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Loyalty</h3>
+                    <p>Building lasting relationships through consistent support, reliability, and dedication to our partners' long-term success.</p>
+                </div>
+                
+                <div class="value-card animate-on-scroll">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>Embracing forward-thinking solutions and cutting-edge technologies that create value and drive positive change.</p>
+                </div>
+                
+                <div class="value-card animate-on-scroll">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Growth</h3>
+                    <p>Fostering sustainable expansion that benefits all stakeholders while maintaining our commitment to responsible investment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid animate-on-scroll">
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Core Values</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Ethical Standards</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Partnership Potential</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Unified Vision</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Approach Section -->
+    <section class="approach">
+        <div class="container">
+            <div class="approach-content">
+                <div class="approach-text animate-on-scroll">
+                    <h2>Our Investment Philosophy</h2>
+                    <p>We believe that exceptional returns come from exceptional principles. Our investment committee evaluates every opportunity through the lens of our core values, ensuring alignment with both financial objectives and ethical standards.</p>
+                    <p>By focusing on businesses that demonstrate integrity, foster innovation, and deliver sustainable growth, we create value that extends beyond financial returns.</p>
+                    
+                    <ul class="approach-features">
+                        <li>
+                            <i class="fas fa-users"></i>
+                            <span>Committee-driven decision making</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-search"></i>
+                            <span>Rigorous due diligence process</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-balance-scale"></i>
+                            <span>Values-based investment criteria</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-leaf"></i>
+                            <span>Sustainable growth focus</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="approach-visual animate-on-scroll">
+                    <div class="approach-image"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info animate-on-scroll">
+                    <h2>Partner With Us</h2>
+                    <p>We welcome partnerships with organizations and individuals who share our commitment to principled investment and sustainable growth.</p>
+                    <p>Whether you're seeking investment opportunities or exploring collaboration possibilities, we invite you to connect with our team.</p>
+                    <p>Together, we can build a future where business success and ethical excellence go hand in hand.</p>
+                </div>
+                
+                <div class="contact-form animate-on-scroll">
+                    <div class="form-success" id="form-success">
+                        <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.
+                    </div>
+                    
+                    <form action="https://formspree.io/f/xeolnvzp" method="POST" id="contact-form">
+                        <!-- Hidden fields for Formspree -->
+                        <input type="hidden" name="_next" value="https://aklfo.com">
+                        <input type="hidden" name="_subject" value="Partnership Inquiry - AKL Financial Organization">
+                        <input type="hidden" name="_captcha" value="false">
+                        
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="your.email@domain.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="organization">Organization</label>
+                            <input type="text" id="organization" name="organization" placeholder="Your organization">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="inquiry">Inquiry Type</label>
+                            <select id="inquiry" name="inquiry_type">
+                                <option value="Partnership">Partnership Opportunity</option>
+                                <option value="Investment">Investment Discussion</option>
+                                <option value="Collaboration">Collaboration Inquiry</option>
+                                <option value="General">General Information</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your interests and how we might work together..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn" id="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AKL Financial Organization</h3>
+                    <p>Principled investment excellence built on integrity, loyalty, innovation, and growth. Creating value through ethical business practices.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Our Mission</h3>
+                    <p>To foster sustainable growth and positive change through principled investment decisions guided by our core values.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Investment Approach</h3>
+                    <p>Committee-driven decisions based on rigorous analysis, ethical standards, and long-term value creation for all stakeholders.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 AKL Financial Organization. All rights reserved. | Principled Investment Excellence</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form handling
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = document.getElementById('submit-btn');
+            const successMsg = document.getElementById('form-success');
+            
+            // Update button state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending Message...';
+            submitBtn.disabled = true;
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    successMsg.classList.add('show');
+                    form.reset();
+                    
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                    
+                    setTimeout(() => {
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                        submitBtn.disabled = false;
+                        successMsg.classList.remove('show');
+                    }, 3000);
+                    
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+                
+            } catch (error) {
+                submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Please try again';
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                    submitBtn.disabled = false;
+                }, 3000);
+            }
+        });
+
+        // Mobile menu (basic implementation)
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>

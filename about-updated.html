@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About AKL Financial Organization</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #1a365d;
+            --secondary-blue: #2c5282;
+            --accent-gold: #d69e2e;
+            --light-gold: #f6e05e;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --bg-white: #ffffff;
+            --bg-light: #f7fafc;
+            --bg-dark: #1a202c;
+            --border-light: #e2e8f0;
+            --success-green: #38a169;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-white) 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Leadership Section */
+        .leadership {
+            padding: 6rem 0;
+            background: var(--bg-white);
+        }
+
+        .leadership-content {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .leadership-image {
+            width: 100%;
+            height: 500px;
+            background: url('https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/e147f4aa-3c0a-4d78-9842-ca8a07a6b265.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px var(--shadow);
+        }
+
+        .leadership-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 2rem;
+        }
+
+        .leadership-text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Values Deep Dive */
+        .values-deep {
+            padding: 6rem 0;
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .values-detailed {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .value-detail {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px var(--shadow);
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .value-detail-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--bg-white);
+        }
+
+        .value-detail-content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+        }
+
+        .value-detail-content p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .value-examples {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .value-examples li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .value-examples li i {
+            color: var(--accent-gold);
+        }
+
+        /* Partnership Visual */
+        .partnership {
+            padding: 6rem 0;
+            background: var(--bg-white);
+        }
+
+        .partnership-content {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .partnership-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 2rem;
+        }
+
+        .partnership-text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .partnership-image {
+            width: 100%;
+            height: 400px;
+            background: url('https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/4f57f60f-34d5-49f8-887d-e307c4ed3d17.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px var(--shadow);
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-gold);
+            color: var(--bg-white);
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            background: var(--light-gold);
+            color: var(--text-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: var(--bg-white);
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .leadership-content,
+            .partnership-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .value-detail {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">AKL Financial</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#contact">Connect</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Who We Are</h1>
+            <p>Discover the principles, leadership, and vision that drive AKL Financial Organization's commitment to ethical investment excellence.</p>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="leadership">
+        <div class="container">
+            <div class="leadership-content">
+                <div class="leadership-image animate-on-scroll"></div>
+                <div class="leadership-text animate-on-scroll">
+                    <h2>Experienced Leadership</h2>
+                    <p>Our leadership team brings decades of experience in financial services, investment management, and business development. United by a shared commitment to ethical practices and sustainable growth.</p>
+                    <p>We believe that true leadership is demonstrated not just through financial performance, but through the principles we uphold and the positive impact we create for our partners and communities.</p>
+                    <p>Every decision is guided by our investment committee, ensuring that multiple perspectives and our core values are integrated into our investment approach.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Deep Dive -->
+    <section class="values-deep">
+        <div class="container">
+            <h2 class="section-title">Our Core Values in Action</h2>
+            
+            <div class="values-detailed">
+                <div class="value-detail animate-on-scroll">
+                    <div class="value-detail-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="value-detail-content">
+                        <h3>Integrity</h3>
+                        <p>Integrity forms the foundation of every relationship and decision we make. We believe that ethical business practices are not just the right thing to do—they're essential for long-term success.</p>
+                        <ul class="value-examples">
+                            <li><i class="fas fa-check"></i> Transparent communication in all partnerships</li>
+                            <li><i class="fas fa-check"></i> Honest assessment of risks and opportunities</li>
+                            <li><i class="fas fa-check"></i> Commitment to fiduciary responsibility</li>
+                            <li><i class="fas fa-check"></i> Ethical sourcing and business practices</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="value-detail animate-on-scroll">
+                    <div class="value-detail-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="value-detail-content">
+                        <h3>Loyalty</h3>
+                        <p>We build lasting relationships through unwavering support and dedication to our partners' success. Loyalty means being there through both opportunities and challenges.</p>
+                        <ul class="value-examples">
+                            <li><i class="fas fa-check"></i> Long-term partnership approach</li>
+                            <li><i class="fas fa-check"></i> Consistent support through market cycles</li>
+                            <li><i class="fas fa-check"></i> Reliable communication and availability</li>
+                            <li><i class="fas fa-check"></i> Commitment to shared success</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="value-detail animate-on-scroll">
+                    <div class="value-detail-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="value-detail-content">
+                        <h3>Innovation</h3>
+                        <p>We embrace forward-thinking approaches and cutting-edge solutions that create value and drive positive change. Innovation is about improving how we work and the impact we make.</p>
+                        <ul class="value-examples">
+                            <li><i class="fas fa-check"></i> Investment in emerging technologies</li>
+                            <li><i class="fas fa-check"></i> Creative problem-solving approaches</li>
+                            <li><i class="fas fa-check"></i> Continuous process improvement</li>
+                            <li><i class="fas fa-check"></i> Support for innovative business models</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="value-detail animate-on-scroll">
+                    <div class="value-detail-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="value-detail-content">
+                        <h3>Growth</h3>
+                        <p>We foster sustainable expansion that benefits all stakeholders while maintaining our commitment to responsible investment and positive impact creation.</p>
+                        <ul class="value-examples">
+                            <li><i class="fas fa-check"></i> Sustainable business development</li>
+                            <li><i class="fas fa-check"></i> Stakeholder value creation</li>
+                            <li><i class="fas fa-check"></i> Long-term strategic planning</li>
+                            <li><i class="fas fa-check"></i> Responsible expansion practices</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Section -->
+    <section class="partnership">
+        <div class="container">
+            <div class="partnership-content">
+                <div class="partnership-text animate-on-scroll">
+                    <h2>Building Lasting Partnerships</h2>
+                    <p>At AKL Financial Organization, we view every relationship as a partnership built on mutual respect, shared values, and aligned objectives.</p>
+                    <p>Our investment committee approach ensures that multiple perspectives inform our decisions, creating a more thoughtful and comprehensive evaluation process.</p>
+                    <p>We believe that the best investments come from understanding not just the numbers, but the people, principles, and potential behind every opportunity.</p>
+                    <a href="index.html#contact" class="cta-button">
+                        <i class="fas fa-arrow-right"></i>
+                        Connect With Us
+                    </a>
+                </div>
+                <div class="partnership-image animate-on-scroll"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 AKL Financial Organization. All rights reserved. | Principled Investment Excellence</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
